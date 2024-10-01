@@ -29,9 +29,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37E4FCAB2CACAD5F00718FA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		37E4FCAC2CACAD8200718FA8 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		37E4FCAE2CACADA900718FA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		37E4FCAF2CACADBD00718FA8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		37FBD95A2CACA9F100489991 = {
 			isa = PBXGroup;
 			children = (
+				37E4FCAF2CACADBD00718FA8 /* ViewModel */,
+				37E4FCAE2CACADA900718FA8 /* View */,
+				37E4FCAC2CACAD8200718FA8 /* Networking */,
+				37E4FCAB2CACAD5F00718FA8 /* Model */,
 				37FBD9652CACA9F100489991 /* MarvelApp */,
 				37FBD9642CACA9F100489991 /* Products */,
 			);
