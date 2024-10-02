@@ -15,15 +15,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marvelLogo" translatesAutoresizingMaskIntoConstraints="NO" id="lLj-qB-GaQ">
-                                <rect key="frame" x="-315.66666666666669" y="-91" width="1024.3333333333333" height="1024"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marvelLowRes" translatesAutoresizingMaskIntoConstraints="NO" id="lDJ-9z-pss">
+                                <rect key="frame" x="46.666666666666657" y="376" width="300" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="S6b-Y9-12f"/>
+                                    <constraint firstAttribute="width" constant="300" id="a6X-Bk-xPv"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="awI-BW-mvf"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="bPz-dH-5d3"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="lLj-qB-GaQ" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="-150" id="7Ti-W9-Lyb"/>
-                            <constraint firstItem="lLj-qB-GaQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gj0-TA-zv0"/>
+                            <constraint firstItem="lDJ-9z-pss" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="0Is-iO-5NN"/>
+                            <constraint firstItem="lDJ-9z-pss" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Gif-kg-XeI"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -33,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="marvelLogo" width="1024" height="1024"/>
+        <image name="marvelLowRes" width="2774" height="700"/>
     </resources>
 </document>
