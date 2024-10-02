@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		37594A8A2CAD452F0044A84F /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37594A892CAD452F0044A84F /* Character.swift */; };
 		37650FEA2CAD4E6800400770 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37650FE92CAD4E6800400770 /* LaunchScreen.storyboard */; };
+		378B6E9A2CADED250007DE50 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378B6E992CADED250007DE50 /* CharacterViewModel.swift */; };
 		37E4FCB42CACD0C100718FA8 /* MarvelAPIDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E4FCB32CACD0C100718FA8 /* MarvelAPIDataClient.swift */; };
 		37E4FCB82CACD2D500718FA8 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37E4FCB72CACD2D500718FA8 /* Secrets.plist */; };
 /* End PBXBuildFile section */
@@ -16,6 +17,7 @@
 /* Begin PBXFileReference section */
 		37594A892CAD452F0044A84F /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		37650FE92CAD4E6800400770 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		378B6E992CADED250007DE50 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		37E4FCB32CACD0C100718FA8 /* MarvelAPIDataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIDataClient.swift; sourceTree = "<group>"; };
 		37E4FCB72CACD2D500718FA8 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		37FBD9632CACA9F100489991 /* MarvelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 		37F0E5562CAD4495003CC85B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				378B6E992CADED250007DE50 /* CharacterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				378B6E9A2CADED250007DE50 /* CharacterViewModel.swift in Sources */,
 				37E4FCB42CACD0C100718FA8 /* MarvelAPIDataClient.swift in Sources */,
 				37594A8A2CAD452F0044A84F /* Character.swift in Sources */,
 			);
