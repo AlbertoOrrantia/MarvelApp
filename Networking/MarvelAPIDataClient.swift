@@ -53,29 +53,5 @@ class MarvelAPIDataClient {
         return hash.map { String(format: "%02hhx", $0) }.joined()
     }
 }
-// To maintain MVVM and Clean Architecture principles, this should NOT be here. However for this commit and for first testing purposes I will leave this here
 
-struct MarvelResponse: Codable {
-    let data: DataClass
-}
 
-struct DataClass: Codable {
-    let results: [Character]
-}
-
-struct Character: Identifiable, Codable {
-    let id: Int
-    let name: String
-    let description: String
-    let thumbnail: Thumbnail
-
-    var thumbnailURL: String {
-        //return "\(thumbnail.path).\(thumbnail.extension)"
-        return thumbnail.path.hasPrefix("http://") ? thumbnail.path.replacingOccurrences(of: "http://", with: "https://") + ".\(thumbnail.extension)" : "\(thumbnail.path).\(thumbnail.extension)"
-    }
-}
-
-struct Thumbnail: Codable {
-    let path: String
-    let `extension`: String
-}
