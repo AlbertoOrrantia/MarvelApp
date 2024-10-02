@@ -30,3 +30,4 @@ struct Thumbnail: Codable {
     let path: String
     let `extension`: String
 }
+
