@@ -33,7 +33,4 @@ struct CharacterDetailView: View {
     }
 }
 
-// To remove on refactor
-//#Preview {
-//    CharacterDetailView()
-//}
+
