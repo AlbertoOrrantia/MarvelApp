@@ -18,20 +18,20 @@ struct ContentView: View {
                 Text("Error: \(errorMessage)")
             } else {
                 List(viewModel.characters) { character in
-                    HStack {
-                        // Load character image using AsyncImage
-                        AsyncImage(url: URL(string: character.thumbnailURL)) { image in
-                            image.resizable()
-                                .scaledToFit()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(8)
-                        } placeholder: {
-                            ProgressView() // Placeholder while image loads
+                    NavigationLink(destination: CharacterDetailView(character: character)) {
+                        HStack {
+                            AsyncImage(url: URL(string: character.thumbnailURL)) { image in
+                                image.resizable()
+                                    .scaledToFit()
+                                    .frame(width: 50, height: 50)
+                                    .cornerRadius(8)
+                            } placeholder: {
+                                ProgressView() // Placeholder while image loads
+                            }
+                            Text(character.name)
+                                .font(.headline)
+                                .padding(.leading, 10)
                         }
-                        // Display character name
-                        Text(character.name)
-                            .font(.headline)
-                            .padding(.leading, 10)
                     }
                 }
                 .navigationTitle("Marvel Characters")
@@ -42,6 +42,7 @@ struct ContentView: View {
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
