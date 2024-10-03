@@ -13,12 +13,12 @@ struct MainTabView: View {
             ContentView()
                 .tabItem { Image(systemName: "house.fill")
                     Text("Home") }
-            //To be implemented next
-            //SearchView()
+            
+            SearchView()
                 .tabItem { Image(systemName: "magnifyingglass")
                     Text("Search")
                 }
-            
+            //To be implemented next
             //FavoritesView()
                 .tabItem { Image(systemName: "heart.fill")
                     Text("Favorites")
