@@ -7,39 +7,17 @@
 
 import SwiftUI
 
-//struct ContentView: View {
-//    var body: some View {
-//        VStack {
-//            Image(systemName: "globe")
-//                .imageScale(.large)
-//                .foregroundStyle(.tint)
-//            Text("Hello, world!")
-//        }
-//        .padding()
-//    }
-//}
-//
-//#Preview {
-//    ContentView()
-//}
-
-// Testing purposes only, EREASE after this commit and will maitain MVVM and clean architecture principles
-
 struct ContentView: View {
-    @State private var characters: [Character] = []
-    @State private var isLoading = true
-    @State private var errorMessage: String?
+    @StateObject private var viewModel = CharacterViewModel()
 
     var body: some View {
         NavigationView {
-            if isLoading {
-                // Spinner Load
+            if viewModel.isLoading {
                 ProgressView("Loading characters...")
-            } else if let errorMessage = errorMessage {
-                // Show the error message if something goes wrong
+            } else if let errorMessage = viewModel.errorMessage {
                 Text("Error: \(errorMessage)")
             } else {
-                List(characters) { character in
+                List(viewModel.characters) { character in
                     HStack {
                         // Load character image using AsyncImage
                         AsyncImage(url: URL(string: character.thumbnailURL)) { image in
@@ -50,7 +28,6 @@ struct ContentView: View {
                         } placeholder: {
                             ProgressView() // Placeholder while image loads
                         }
-
                         // Display character name
                         Text(character.name)
                             .font(.headline)
@@ -61,24 +38,7 @@ struct ContentView: View {
             }
         }
         .onAppear {
-            loadCharacters()
-        }
-    }
-
-    func loadCharacters() {
-        let apiClient = MarvelAPIDataClient()
-        apiClient.fetchCharacters { result in
-            if let result = result {
-                DispatchQueue.main.async {
-                    self.characters = result
-                    self.isLoading = false
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.errorMessage = "Failed to load characters."
-                    self.isLoading = false
-                }
-            }
+            viewModel.fetchCharacters()
         }
     }
 }
