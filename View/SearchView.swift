@@ -43,7 +43,6 @@ struct SearchView: View {
             viewModel.fetchCharacters()
         }
     }
-    
     }
 
 
