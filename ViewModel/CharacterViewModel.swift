@@ -11,9 +11,9 @@ class CharacterViewModel: ObservableObject {
     @Published var characters: [Character] = []
     @Published var isLoading = true
     @Published var errorMessage: String?
-
+    
     private let apiClient = MarvelAPIDataClient()
-
+    
     func fetchCharacters() {
         apiClient.fetchCharacters { [weak self] result in
             DispatchQueue.main.async {
@@ -24,6 +24,16 @@ class CharacterViewModel: ObservableObject {
                     self?.errorMessage = "Failed to load, Please try again later."
                     self?.isLoading = false
                 }
+            }
+        }
+    }
+    
+    // To be refactored
+    func filteredCharacters(searchText: String) -> [Character] {
+        if searchText.isEmpty {
+            return characters
+        } else {
+            return characters.filter { $0.name.lowercased().contains(searchText.lowercased())
             }
         }
     }

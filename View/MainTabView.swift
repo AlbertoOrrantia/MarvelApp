@@ -18,7 +18,7 @@ struct MainTabView: View {
                 .tabItem { Image(systemName: "magnifyingglass")
                     Text("Search")
                 }
-            //To be implemented next
+            //Next Step
             //FavoritesView()
                 .tabItem { Image(systemName: "heart.fill")
                     Text("Favorites")
