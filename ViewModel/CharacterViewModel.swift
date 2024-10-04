@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class CharacterViewModel: ObservableObject {
     @Published var characters: [Character] = []
     @Published var isLoading = true

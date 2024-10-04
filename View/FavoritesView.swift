@@ -15,7 +15,3 @@ struct FavoritesView: View {
     }
 }
 
-//Erease all previews later to avoid xcode bugs
-#Preview {
-    FavoritesView()
-}
