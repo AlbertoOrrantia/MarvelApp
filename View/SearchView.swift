@@ -14,12 +14,14 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // Search Bar
-                TextField("Search characters", text: $searchText)
-                    .padding(10)
-                    .background(Color(.systemGray5))
-                    .cornerRadius(25)
-                    .padding(.horizontal, 10)
+                // Search Bar at the top
+                TextField("Search characters", text: $searchText, onCommit: {
+                    searchCharacters()
+                })
+                .padding(10)
+                .background(Color(.systemGray5))
+                .cornerRadius(25)
+                .padding(.horizontal, 10)
 
                 if viewModel.isLoading {
                     ProgressView("Searching for characters...")
@@ -27,7 +29,7 @@ struct SearchView: View {
                 } else if let errorMessage = viewModel.errorMessage {
                     Text("Error: \(errorMessage)")
                 } else {
-                    List(viewModel.filteredCharacters(searchText: searchText)) { character in
+                    List(viewModel.characters) { character in
                         NavigationLink(destination: CharacterDetailView(character: character)) {
                             HStack {
                                 AsyncImage(url: URL(string: character.thumbnailURL)) { image in
@@ -50,8 +52,16 @@ struct SearchView: View {
             }
             .navigationTitle("Search Characters")
             .onAppear {
-                viewModel.fetchCharacters()
+                viewModel.fetchCharacters() 
             }
+        }
+    }
+    
+    func searchCharacters() {
+        if !searchText.isEmpty {
+            viewModel.fetchCharactersByName(searchText)
+        } else {
+            viewModel.characters.removeAll()
         }
     }
 }

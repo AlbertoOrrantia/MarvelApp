@@ -13,6 +13,7 @@ struct MarvelResponse: Codable {
 
 struct DataClass: Codable {
     let results: [Character]
+    let total: Int
 }
 
 struct Character: Identifiable, Codable {

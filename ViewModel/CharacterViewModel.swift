@@ -17,22 +17,39 @@ class CharacterViewModel: ObservableObject {
     private let apiClient = MarvelAPIDataClient()
     private var offset = 0
     private let limit = 20
+    private var totalCharacters: Int?
 
     func fetchCharacters() {
-        if isFetchingMore { return }
+        if isFetchingMore { return } 
         isFetchingMore = true
         
-        apiClient.fetchCharacters(limit: limit, offset: offset) { [weak self] result in
+        apiClient.fetchCharacters(limit: limit, offset: offset) { [weak self] result, total in
             DispatchQueue.main.async {
                 if let result = result {
                     self?.characters.append(contentsOf: result)
                     self?.offset += self?.limit ?? 0
+                    self?.totalCharacters = total
                     self?.isLoading = false
                 } else {
                     self?.errorMessage = "Failed to load, Please try again later."
                     self?.isLoading = false
                 }
                 self?.isFetchingMore = false
+            }
+        }
+    }
+
+    func fetchCharactersByName(_ name: String) {
+        isLoading = true
+        apiClient.fetchCharactersByName(name: name) { [weak self] result in
+            DispatchQueue.main.async {
+                if let result = result {
+                    self?.characters = result
+                    self?.isLoading = false
+                } else {
+                    self?.errorMessage = "Failed to load characters."
+                    self?.isLoading = false
+                }
             }
         }
     }
@@ -44,5 +61,13 @@ class CharacterViewModel: ObservableObject {
             return characters.filter { $0.name.lowercased().contains(searchText.lowercased()) }
         }
     }
-}
 
+    func loadMoreCharactersIfNeeded(currentCharacter: Character) {
+        guard let lastCharacter = characters.last else {
+            return
+        }
+        if currentCharacter.id == lastCharacter.id, let totalCharacters = totalCharacters, characters.count < totalCharacters {
+            fetchCharacters()
+        }
+    }
+}

@@ -22,16 +22,42 @@ class MarvelAPIDataClient {
     private let publicKey = getAPIKey(named: "MARVEL_PUBLIC_KEY")
     private let privateKey = getAPIKey(named: "MARVEL_PRIVATE_KEY")
     
-    func fetchCharacters(limit: Int = 20, offset : Int = 0,completion: @escaping ([Character]?) -> Void) {
+    func fetchCharacters(limit: Int = 20, offset: Int = 0, completion: @escaping ([Character]?, Int?) -> Void) {
         let ts = "\(Int(Date().timeIntervalSince1970))"
         let hash = generateMarvelHash(ts: ts, privateKey: privateKey, publicKey: publicKey)
 
         let urlString = "https://gateway.marvel.com/v1/public/characters?ts=\(ts)&apikey=\(publicKey)&hash=\(hash)&limit=\(limit)&offset=\(offset)"
         guard let url = URL(string: urlString) else {
-            completion(nil)
+            completion(nil, nil)
             return
         }
 
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else {
+                completion(nil, nil)
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                let marvelData = try decoder.decode(MarvelResponse.self, from: data)
+                completion(marvelData.data.results, marvelData.data.total)
+            } catch {
+                completion(nil, nil)
+            }
+        }.resume()
+    }
+
+    func fetchCharactersByName(name: String, completion: @escaping ([Character]?) -> Void) {
+        let ts = "\(Int(Date().timeIntervalSince1970))"
+        let hash = generateMarvelHash(ts: ts, privateKey: privateKey, publicKey: publicKey)
+        
+        let urlString = "https://gateway.marvel.com/v1/public/characters?nameStartsWith=\(name)&ts=\(ts)&apikey=\(publicKey)&hash=\(hash)"
+        
+        guard let url = URL(string: urlString) else {
+            completion(nil)
+            return
+        }
+        
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else {
                 completion(nil)
@@ -46,12 +72,11 @@ class MarvelAPIDataClient {
             }
         }.resume()
     }
-
+    
     private func generateMarvelHash(ts: String, privateKey: String, publicKey: String) -> String {
         let hashString = ts + privateKey + publicKey
         let hash = Insecure.MD5.hash(data: Data(hashString.utf8))
         return hash.map { String(format: "%02hhx", $0) }.joined()
     }
 }
-
 
