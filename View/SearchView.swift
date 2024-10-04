@@ -16,7 +16,11 @@ struct SearchView: View {
         VStack {
             TextField("Search", text: $searchText)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
+                .padding(10)
+                .background(Color(.systemGray5))
+                .cornerRadius(20)
+                .padding(.horizontal, 10)
+            
             if viewModel.isLoading {
                 ProgressView("Searching for characters...")
             } else {
