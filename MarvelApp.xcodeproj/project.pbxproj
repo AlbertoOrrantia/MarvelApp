@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3741F2312CAFC09600DA813A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3741F22B2CAFC09600DA813A /* ContentView.swift */; };
 		37594A8A2CAD452F0044A84F /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37594A892CAD452F0044A84F /* Character.swift */; };
 		37650FEA2CAD4E6800400770 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37650FE92CAD4E6800400770 /* LaunchScreen.storyboard */; };
 		378B6E9A2CADED250007DE50 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378B6E992CADED250007DE50 /* CharacterViewModel.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3741F22B2CAFC09600DA813A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		37594A892CAD452F0044A84F /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		37650FE92CAD4E6800400770 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		378B6E992CADED250007DE50 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				379967F72CAE830600341528 /* MainTabView.swift */,
 				379967F92CAE84B800341528 /* SearchView.swift */,
 				37E212F82CAF8FB200049BE2 /* FavoritesView.swift */,
+				3741F22B2CAFC09600DA813A /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3741F2312CAFC09600DA813A /* ContentView.swift in Sources */,
 				378B6E9A2CADED250007DE50 /* CharacterViewModel.swift in Sources */,
 				379967F62CAE5E0C00341528 /* CharacterDetailView.swift in Sources */,
 				379967FA2CAE84B800341528 /* SearchView.swift in Sources */,
