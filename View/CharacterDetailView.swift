@@ -12,25 +12,27 @@ struct CharacterDetailView: View {
     
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: character.thumbnailURL)) { image in image.resizable()
+            AsyncImage(url: URL(string: character.thumbnailURL)) { image in
+                image.resizable()
                     .scaledToFit()
-                    .frame(width: 200, height: 200)
-                    .cornerRadius(12)
+                    .frame(width: 150, height: 150)
+                    .clipShape(Circle())
+                    .padding()
             } placeholder: {
                 ProgressView()
             }
-            
+
             Text(character.name)
                 .font(.largeTitle)
                 .padding()
-            
+
             Text(character.description.isEmpty ? "No description available" : character.description)
                 .font(.body)
                 .padding()
+            
             Spacer()
         }
-                .navigationBarTitle(character.name)
+        .navigationTitle(character.name)
     }
 }
-
 
