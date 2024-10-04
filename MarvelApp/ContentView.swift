@@ -25,19 +25,21 @@ struct ContentView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(viewModel.characters) { character in
-                            VStack {
-                                AsyncImage(url: URL(string: character.thumbnailURL)) { image in
-                                    image.resizable()
-                                        .scaledToFit()
-                                        .frame(width: 100, height: 100)
-                                        .clipShape(Circle())
-                                } placeholder: {
-                                    ProgressView()
-                                }
+                            NavigationLink(destination: CharacterDetailView(character: character)) {
+                                VStack {
+                                    AsyncImage(url: URL(string: character.thumbnailURL)) { image in
+                                        image.resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 100)
+                                            .clipShape(Circle())
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
 
-                                Text(character.name)
-                                    .font(.headline)
-                                    .padding(.top, 10)
+                                    Text(character.name)
+                                        .font(.headline)
+                                        .padding(.top, 10)
+                                }
                             }
                         }
                     }
