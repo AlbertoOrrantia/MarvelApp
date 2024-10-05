@@ -52,6 +52,14 @@ struct SearchView: View {
                                     .padding(.vertical, 5)
                                     .padding(.horizontal, 20)
                                 }
+                                .onAppear {
+                                    viewModel.loadMoreCharactersIfNeeded(currentCharacter: character)
+                                }
+                            }
+
+                            if viewModel.isFetchingMore {
+                                ProgressView("Loading more...")
+                                    .padding()
                             }
                         }
                     }
