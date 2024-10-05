@@ -20,7 +20,7 @@ class CharacterViewModel: ObservableObject {
     private var totalCharacters: Int?
 
     func fetchCharacters() {
-        if isFetchingMore { return } 
+        if isFetchingMore { return }
         isFetchingMore = true
         
         apiClient.fetchCharacters(limit: limit, offset: offset) { [weak self] result, total in
