@@ -15,6 +15,8 @@
 		379967F62CAE5E0C00341528 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379967F52CAE5E0C00341528 /* CharacterDetailView.swift */; };
 		379967F82CAE830600341528 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379967F72CAE830600341528 /* MainTabView.swift */; };
 		379967FA2CAE84B800341528 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379967F92CAE84B800341528 /* SearchView.swift */; };
+		37CE73BF2CB0F25100D1085D /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE73BE2CB0F25100D1085D /* FavoritesViewModel.swift */; };
+		37CE73C12CB0F6FB00D1085D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE73C02CB0F6FB00D1085D /* PersistenceController.swift */; };
 		37E212F92CAF8FB200049BE2 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E212F82CAF8FB200049BE2 /* FavoritesView.swift */; };
 		37E4FCB42CACD0C100718FA8 /* MarvelAPIDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E4FCB32CACD0C100718FA8 /* MarvelAPIDataClient.swift */; };
 		37E4FCB82CACD2D500718FA8 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37E4FCB72CACD2D500718FA8 /* Secrets.plist */; };
@@ -29,6 +31,8 @@
 		379967F52CAE5E0C00341528 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		379967F72CAE830600341528 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		379967F92CAE84B800341528 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		37CE73BE2CB0F25100D1085D /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		37CE73C02CB0F6FB00D1085D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		37E212F82CAF8FB200049BE2 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		37E4FCB32CACD0C100718FA8 /* MarvelAPIDataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIDataClient.swift; sourceTree = "<group>"; };
 		37E4FCB72CACD2D500718FA8 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				376382D22CB0D7A30022DAFD /* FavoritesModel.xcdatamodeld */,
+				37CE73C02CB0F6FB00D1085D /* PersistenceController.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				378B6E992CADED250007DE50 /* CharacterViewModel.swift */,
+				37CE73BE2CB0F25100D1085D /* FavoritesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -211,7 +217,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3741F2312CAFC09600DA813A /* ContentView.swift in Sources */,
+				37CE73BF2CB0F25100D1085D /* FavoritesViewModel.swift in Sources */,
 				378B6E9A2CADED250007DE50 /* CharacterViewModel.swift in Sources */,
+				37CE73C12CB0F6FB00D1085D /* PersistenceController.swift in Sources */,
 				379967F62CAE5E0C00341528 /* CharacterDetailView.swift in Sources */,
 				379967FA2CAE84B800341528 /* SearchView.swift in Sources */,
 				379967F82CAE830600341528 /* MainTabView.swift in Sources */,
