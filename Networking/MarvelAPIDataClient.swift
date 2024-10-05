@@ -31,7 +31,8 @@ class MarvelAPIDataClient {
             completion(nil, nil)
             return
         }
-
+        
+        // Network Request to MarvelAPI,  test here
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else {
                 completion(nil, nil)
@@ -42,7 +43,7 @@ class MarvelAPIDataClient {
                 let marvelData = try decoder.decode(MarvelResponse.self, from: data)
                 completion(marvelData.data.results, marvelData.data.total)
             } catch {
-                completion(nil, nil)
+                completion(nil, nil) //Error Handling
             }
         }.resume()
     }
@@ -73,6 +74,8 @@ class MarvelAPIDataClient {
         }.resume()
     }
     
+    
+    // Generate Hash with MD5 encryption
     private func generateMarvelHash(ts: String, privateKey: String, publicKey: String) -> String {
         let hashString = ts + privateKey + publicKey
         let hash = Insecure.MD5.hash(data: Data(hashString.utf8))

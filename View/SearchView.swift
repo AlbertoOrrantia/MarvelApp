@@ -14,6 +14,7 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             VStack {
+                //Search bar fixed on top
                 TextField("Search characters", text: $searchText, onCommit: {
                     searchCharacters()
                 })
@@ -52,6 +53,7 @@ struct SearchView: View {
                                     .padding(.vertical, 5)
                                     .padding(.horizontal, 20)
                                 }
+                                //Show more characters when almost at the end of the list
                                 .onAppear {
                                     viewModel.loadMoreCharactersIfNeeded(currentCharacter: character)
                                 }
@@ -71,7 +73,8 @@ struct SearchView: View {
             }
         }
     }
-
+    
+// Helper function to search for the users input
     func searchCharacters() {
         if !searchText.isEmpty {
             viewModel.fetchCharactersByName(searchText)

@@ -14,6 +14,7 @@ class FavoritesViewModel: ObservableObject {
     let viewContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext
     
     func addFavorite(character: Character) {
+        // Prevents to add the same character more then once
         if favoriteCharacters.contains(where: { $0.characterID == String(character.id) }) {
             return
         }

@@ -23,6 +23,7 @@ class CharacterViewModel: ObservableObject {
         if isFetchingMore { return }
         isFetchingMore = true
         
+        //Set Offset and limit for pagination
         apiClient.fetchCharacters(limit: limit, offset: offset) { [weak self] result, total in
             DispatchQueue.main.async {
                 if let result = result {
