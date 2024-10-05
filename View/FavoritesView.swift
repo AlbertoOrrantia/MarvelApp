@@ -35,7 +35,9 @@ struct FavoritesView: View {
                                     .padding(.leading, 10)
                                 Spacer()
                                 Button(action: {
-                                    viewModel.removeFavorite(character: favorite)
+                                    withAnimation(.spring()) {
+                                        viewModel.removeFavorite(character: favorite)
+                                    }
                                 }) {
                                     Image(systemName: "trash")
                                         .foregroundColor(.red)
@@ -49,8 +51,8 @@ struct FavoritesView: View {
             .onAppear {
                 viewModel.fetchFavorites()
             }
-            
         }
     }
 }
+
 

@@ -14,6 +14,10 @@ class FavoritesViewModel: ObservableObject {
     let viewContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext
     
     func addFavorite(character: Character) {
+        if favoriteCharacters.contains(where: { $0.characterID == String(character.id) }) {
+            return
+        }
+        
         let newFavorite = FavoriteCharacter(context: viewContext)
         newFavorite.characterID = String(character.id)
         newFavorite.name = character.name
