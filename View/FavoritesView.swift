@@ -14,7 +14,7 @@ struct FavoritesView: View {
         NavigationView {
             VStack {
                 if viewModel.favoriteCharacters.isEmpty {
-                    Text("Add Your Favorite Character!")
+                    Text("Add Your Favorite Characters!")
                         .font(.headline)
                         .padding(10)
                 } else {
