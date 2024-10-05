@@ -18,8 +18,8 @@ struct MainTabView: View {
                 .tabItem { Image(systemName: "magnifyingglass")
                     Text("Search")
                 }
-            //Next Step
-            //FavoritesView()
+            
+            FavoritesView()
                 .tabItem { Image(systemName: "heart.fill")
                     Text("Favorites")
                 }
