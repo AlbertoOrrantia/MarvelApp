@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CharacterDetailView: View {
-    let character: Character
+    @StateObject var favoritesViewModel = FavoritesViewModel()
+    var character: Character
     
     var body: some View {
         VStack {
@@ -29,6 +30,19 @@ struct CharacterDetailView: View {
             Text(character.description.isEmpty ? "No description available" : character.description)
                 .font(.body)
                 .padding()
+            
+            Button(action: {
+                favoritesViewModel.addFavorite(character: character)
+            }) {
+                HStack {
+                    Image(systemName: "heart.fill")
+                    Text("Add to favorites")
+                }
+                .padding()
+                .background(Color.red)
+                .foregroundStyle(.white)
+                .cornerRadius(10)
+            }
             
             Spacer()
         }
