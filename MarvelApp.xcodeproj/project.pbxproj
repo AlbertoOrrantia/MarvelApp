@@ -17,9 +17,9 @@
 		379967FA2CAE84B800341528 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379967F92CAE84B800341528 /* SearchView.swift */; };
 		37CE73BF2CB0F25100D1085D /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE73BE2CB0F25100D1085D /* FavoritesViewModel.swift */; };
 		37CE73C12CB0F6FB00D1085D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE73C02CB0F6FB00D1085D /* PersistenceController.swift */; };
+		37DE22062CB14A3A00F3FBF5 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37BC021D2CB149130039575C /* Secrets.plist */; };
 		37E212F92CAF8FB200049BE2 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E212F82CAF8FB200049BE2 /* FavoritesView.swift */; };
 		37E4FCB42CACD0C100718FA8 /* MarvelAPIDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E4FCB32CACD0C100718FA8 /* MarvelAPIDataClient.swift */; };
-		37E4FCB82CACD2D500718FA8 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37E4FCB72CACD2D500718FA8 /* Secrets.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,11 +31,11 @@
 		379967F52CAE5E0C00341528 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		379967F72CAE830600341528 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		379967F92CAE84B800341528 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		37BC021D2CB149130039575C /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		37CE73BE2CB0F25100D1085D /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		37CE73C02CB0F6FB00D1085D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		37E212F82CAF8FB200049BE2 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		37E4FCB32CACD0C100718FA8 /* MarvelAPIDataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIDataClient.swift; sourceTree = "<group>"; };
-		37E4FCB72CACD2D500718FA8 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		37FBD9632CACA9F100489991 /* MarvelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,7 +120,7 @@
 		37FBD95A2CACA9F100489991 = {
 			isa = PBXGroup;
 			children = (
-				37E4FCB72CACD2D500718FA8 /* Secrets.plist */,
+				37BC021D2CB149130039575C /* Secrets.plist */,
 				37650FE92CAD4E6800400770 /* LaunchScreen.storyboard */,
 				37E4FCAC2CACAD8200718FA8 /* Networking */,
 				37FBD9652CACA9F100489991 /* MarvelApp */,
@@ -204,7 +204,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E4FCB82CACD2D500718FA8 /* Secrets.plist in Resources */,
+				37DE22062CB14A3A00F3FBF5 /* Secrets.plist in Resources */,
 				37650FEA2CAD4E6800400770 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
