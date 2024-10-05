@@ -14,7 +14,6 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // Search Bar at the top
                 TextField("Search characters", text: $searchText, onCommit: {
                     searchCharacters()
                 })
@@ -22,41 +21,49 @@ struct SearchView: View {
                 .background(Color(.systemGray5))
                 .cornerRadius(25)
                 .padding(.horizontal, 10)
+                .padding(.top, 10)
 
-                if viewModel.isLoading {
-                    ProgressView("Searching for characters...")
-                        .padding(.top, 20)
-                } else if let errorMessage = viewModel.errorMessage {
-                    Text("Error: \(errorMessage)")
-                } else {
-                    List(viewModel.characters) { character in
-                        NavigationLink(destination: CharacterDetailView(character: character)) {
-                            HStack {
-                                AsyncImage(url: URL(string: character.thumbnailURL)) { image in
-                                    image.resizable()
-                                        .scaledToFit()
-                                        .frame(width: 50, height: 50)
-                                        .cornerRadius(8)
-                                } placeholder: {
-                                    ProgressView()
+                ScrollView {
+                    if viewModel.isLoading {
+                        ProgressView("Searching for characters...")
+                            .padding(.top, 20)
+                    } else if let errorMessage = viewModel.errorMessage {
+                        Text("Error: \(errorMessage)")
+                    } else {
+                        LazyVStack {
+                            ForEach(viewModel.characters) { character in
+                                NavigationLink(destination: CharacterDetailView(character: character)) {
+                                    HStack {
+                                        AsyncImage(url: URL(string: character.thumbnailURL)) { image in
+                                            image.resizable()
+                                                .scaledToFit()
+                                                .frame(width: 50, height: 50)
+                                                .cornerRadius(8)
+                                        } placeholder: {
+                                            ProgressView()
+                                        }
+                                        Spacer(minLength: 20)
+
+                                        Text(character.name)
+                                            .font(.headline)
+                                            .foregroundColor(.black)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                    }
+                                    .padding(.vertical, 5)
+                                    .padding(.horizontal, 20)
                                 }
-                                
-                                Text(character.name)
-                                    .font(.headline)
-                                    .padding(.leading, 10)
                             }
                         }
                     }
-                    .listStyle(PlainListStyle())
                 }
             }
             .navigationTitle("Search Characters")
             .onAppear {
-                viewModel.fetchCharacters() 
+                viewModel.fetchCharacters()
             }
         }
     }
-    
+
     func searchCharacters() {
         if !searchText.isEmpty {
             viewModel.fetchCharactersByName(searchText)
